@@ -4,25 +4,21 @@ const AppContext = createContext();
 export const useApp = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
-  const [groups, setGroups] = useState([
-    {
-      id: 1, name: "UNILAG Roomies", category: "Home",
-      members: [
-        { id: 'user', name: 'You', address: 'userGamerTag123' },
-        { id: 'AbiolaWallet', name: 'Abiola', address: 'CryptoKing_Abi' },
-        { id: 'ChineduWallet', name: 'Chinedu', address: 'NFTMaster_Du' }
-      ],
-      expenses: [
-        { id: 1, description: "New Monitor", amount: 100, paidBy: "user", settled: false, date: "2025-09-14" },
-        { id: 2, description: "Groceries", amount: 30, paidBy: "AbiolaWallet", settled: true, date: "2025-09-12" },
-      ]
-    },
-  ]);
-
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [groups, setGroups] = useState([]); 
+  const [balanceVisibility, setBalanceVisibility] = useState({ wallet: true, owes: true, owed: true });
+  const [isProfileModalOpen, setProfileModalOpen] = useState(false);
+  // FIX: Corrected variable name from isCreateGroup-ModalOpen to isCreateGroupModalOpen
   const [isCreateGroupModalOpen, setCreateGroupModalOpen] = useState(false);
   const [isGroupDetailsModalOpen, setGroupDetailsModalOpen] = useState(false);
-  const [isProfileModalOpen, setProfileModalOpen] = useState(false);
   const [activeGroupDetails, setActiveGroupDetails] = useState(null);
+
+  const login = () => setLoggedIn(true);
+  
+  const logout = () => {
+    setLoggedIn(false);
+    setProfileModalOpen(false);
+  };
 
   const createGroup = (newGroup) => {
     if (groups.length >= 5) {
@@ -31,12 +27,28 @@ export const AppProvider = ({ children }) => {
     }
     setGroups(prev => [...prev, { ...newGroup, id: Date.now() }]);
   };
+  
+  const deleteGroup = (groupId) => {
+    setGroups(prev => prev.filter(group => group.id !== groupId));
+  };
+
+  const addExpense = (groupId, newExpense) => {
+    setGroups(prev => prev.map(group =>
+      group.id === parseInt(groupId)
+        ? { ...group, expenses: [...group.expenses, { ...newExpense, id: Date.now(), date: new Date().toISOString().slice(0, 10) }] }
+        : group
+    ));
+  };
+  
+  const toggleBalanceVisibility = (key) => setBalanceVisibility(prev => ({ ...prev, [key]: !prev[key] }));
 
   const value = {
-    groups, createGroup,
+    isLoggedIn, login, logout,
+    groups, createGroup, addExpense, deleteGroup,
+    balanceVisibility, toggleBalanceVisibility,
+    isProfileModalOpen, setProfileModalOpen,
     isCreateGroupModalOpen, setCreateGroupModalOpen,
     isGroupDetailsModalOpen, setGroupDetailsModalOpen,
-    isProfileModalOpen, setProfileModalOpen,
     activeGroupDetails, setActiveGroupDetails,
   };
 
