@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import AppLogo from '../common/AppLogo';
 import { DashboardIcon, StatsIcon } from '../common/Icons';
 
-const Sidebar = () => {
+const Sidebar = ({setScreen}) => {
     const navigate = useNavigate();
 
     return (
@@ -24,7 +24,9 @@ const Sidebar = () => {
                 </li>
             </ul>
             <button 
-                onClick={() => navigate('new-split')}
+                onClick={() => {
+                    setScreen(1);
+                    navigate('/new-split')}}
                 className="w-full bg-solana-purple text-white font-bold py-3 rounded-lg shadow-lg shadow-solana-purple/20 hover:bg-opacity-90 transition-all">
                 New Split
             </button>

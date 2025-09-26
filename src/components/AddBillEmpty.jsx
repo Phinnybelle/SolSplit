@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
-const AddBillEmpty = ({ bill, setBill, onNext }) => {
+const AddBillEmpty = ({ bill, setBill, onNext, groups }) => {
   const [error, setError] = useState("");
-
-  const groups = ["Roommates", "Trip"];
 
   const handleNext = () => {
     if (!bill.description || !bill.amount || !bill.group) {
@@ -52,15 +50,17 @@ const AddBillEmpty = ({ bill, setBill, onNext }) => {
       <div className="mt-6">
         <label className="text-gray-400 text-sm">Select Group</label>
         <select
-          value={bill.group}
-          onChange={(e) => setBill({ ...bill, group: e.target.value })}
-          className="w-full mt-1 p-3 rounded-md bg-gray-800 text-white"
-        >
-          <option value="">-- Select a Group --</option>
-          {groups.map((g) => (
-            <option key={g} value={g}>{g}</option>
-          ))}
-        </select>
+  value={bill.group}
+  onChange={(e) => setBill({ ...bill, group: e.target.value })}
+  className="w-full mt-1 p-3 rounded-md bg-gray-800 text-white"
+>
+  <option value="">-- Select a Group --</option>
+  {groups.map((g) => (
+    <option key={g.name} value={g.name}>
+      {g.name}
+    </option>
+  ))}
+</select>
       </div>
 
       <button
