@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# SolSplit - A Decentralized Bill Splitting Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img src="public/SolLogo.jpg" alt="SolSplit Logo" width="120"/>
+</div>
 
-## Available Scripts
+<p align="center">
+  <strong>Splitting bills with friends on Solana has never been easier.</strong>
+</p>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#-key-features">Key Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-team-contributions">Team</a>
+</p>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 About The Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**SolSplit** is a decentralized application designed to bring clarity, trust, and efficiency to managing shared expenses. Built on the Solana blockchain, it solves the common problems of tracking shared bills by creating a transparent, shared ledger for each group.
 
-### `npm test`
+Our key innovation is the use of a central platform wallet for collections, which removes the need to trust a single group member with funds. Payments are made effortlessly using Solana Pay's QR code technology. This repository contains the feature-rich frontend prototype developed by our team.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built With
 
-### `npm run build`
+- React  
+- TailwindCSS  
+- Solana Pay  
+- Vite  
+- JavaScript (ES6+)  
+- Node.js (for local development)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Key Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Simple Authentication:** A familiar and easy **username/password** onboarding process.  
+- **Centralized Dashboard:** A responsive hub displaying real-time balances for **"You Owe"** and **"Total Owed to SolSplit,"** along with a list of recent transactions.  
+- **Dynamic Group Management:**
+  - Create groups with custom names and categories.  
+  - **Add or remove members** from a group at any time.  
+  - Mock validation ensures Solana wallet addresses meet a minimum length requirement.  
+- **Intuitive Bill Splitting Flow:** A seamless three-step process:  
+  1. **Add a Bill** with a description, amount, and group.  
+  2. **Split the Bill** using interactive sliders.  
+  3. **Confirm & Generate QR Codes** for each member's specific debt.  
+- **Clickable Transaction History:** View past transactions and see a detailed breakdown of who paid and who is still pending. Each transaction is clearly marked as **"Pending"** or **"Completed."**  
+- **Manual Payment Tracking:** A "Mark as Paid" feature allows the bill creator to manually update the payment status of any member, including themselves.  
+- **Solana Pay QR Codes:** Generate unique QR codes for each debt that can be scanned by any Solana-compatible wallet for instant and secure payments.  
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📸 Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*(Here we can add screenshots of the application's key pages)*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Login Page | Dashboard with Modals | Payment QR Code |
+| :---: | :---: | :---: |
+| ![]() | ![]() | ![]() |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🏁 Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To get a local copy up and running, follow these simple steps.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+Make sure you have Node.js (version 18 or higher) and npm installed on your machine.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Installation & Setup
 
-### Analyzing the Bundle Size
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Phinnybelle/SolSplit.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd SolSplit
+   ```
+3. Install all the necessary packages:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application will be available at `http://localhost:3000`.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🗺️ Roadmap & Future Enhancements
 
-### Advanced Configuration
+- [ ] **Full Solana Wallet-Adapter Integration:** Replace the mock login with a real wallet connection.  
+- [ ] **Backend Integration:** Connect the frontend to a Node.js/MongoDB backend to persist all data.  
+- [ ] **Real-Time Transaction Confirmation:** Fetch confirmation from the Solana blockchain after a payment is made.  
+- [ ] **Smart Contract Integration:** Move the group and expense ledger to a Solana Program for full decentralization.  
+- [ ] **User Notifications:** Implement push notifications for payment requests and confirmations.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 👩‍💻 Team Contributions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is a collaborative effort by three dedicated developers:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Phinnybelle:** Login Page & Navbar  
+- **Faithy:** Dashboard, Add New Group Modal, Group Details Modal, Profile Modal, and Confirm Split Page  
+- **Jemmy:** Add New Bill Page, Statistics & AI Financial Insight  
