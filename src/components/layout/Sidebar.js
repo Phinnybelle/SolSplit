@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import AppLogo from '../common/AppLogo';
 import { DashboardIcon, StatsIcon } from '../common/Icons';
+import { Sparkles } from 'lucide-react';
 
 const Sidebar = ({setScreen}) => {
     const navigate = useNavigate();
@@ -22,6 +22,24 @@ const Sidebar = ({setScreen}) => {
                         <StatsIcon className="w-6 h-6 mr-3"/> Statistics
                     </NavLink>
                 </li>
+
+                {/* 🚀 NEW: AI Insights link */}
+        <li>
+          <NavLink
+            to="/insights"
+            className={({ isActive }) =>
+              `nav-link w-full flex items-center p-3 rounded-lg transition-colors ${
+                isActive
+                  ? 'bg-card-bg text-white'
+                  : 'text-light-gray hover:bg-card-bg hover:text-white'
+              }`
+            }
+          >
+            <Sparkles className="w-6 h-6 mr-3 text-purple-400" /> AI Insights
+          </NavLink>
+        </li>
+
+
             </ul>
             <button 
                 onClick={() => {

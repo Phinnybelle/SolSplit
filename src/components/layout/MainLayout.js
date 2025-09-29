@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import InsightsPage from '../InsightsPage';
 import Header from './Header';
 import BottomNav from './BottomNav';
 import DashboardPage from '../../pages/DashboardPage';
@@ -33,6 +34,7 @@ const MainLayout = () => {
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/stats" element={<StatsPage />} />
+              <Route path="/insights" element={<InsightsPage />} />
               <Route
                 path="/new-split"
                 element={

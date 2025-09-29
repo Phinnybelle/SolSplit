@@ -4,6 +4,7 @@ import { useApp } from './context/AppContext';
 import Login from './Login';
 import Register from './Register'; // your new registration page
 import MainLayout from './components/layout/MainLayout';
+import InsightsPage from './components/InsightsPage';
 
 function App() {
   const { isLoggedIn } = useApp();
@@ -22,7 +23,7 @@ function App() {
 
             {/* Login page */}
             <Route path="/login" element={<Login />} />
-
+            
             {/* Redirect all other routes to login */}
             <Route path="*" element={<Navigate to="/login" replace />} />
           </>
@@ -40,6 +41,8 @@ function App() {
                 />
               }
             />
+
+            
           </>
         )}
       </Routes>

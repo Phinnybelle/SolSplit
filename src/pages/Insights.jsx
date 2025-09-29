@@ -1,5 +1,5 @@
 import React from "react";
-import InsightsCard from "../components/InsightsCard";
+import InsightsCard from "../components/InsightsPage";
 
 function Insights() {
   const data = [
