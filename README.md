@@ -107,6 +107,6 @@ The application will be available at `http://localhost:3000`.
 
 This project is a collaborative effort by three dedicated developers:
 
-- **Phinnybelle:** Login Page & Navbar  
-- **Faithy:** Dashboard, Add New Group Modal, Group Details Modal, Profile Modal, and Confirm Split Page  
-- **Jemmy:** Add New Bill Page, Statistics & AI Financial Insight  
+- **Phinnybelle:** Registration, Login, Navbar and AI Financial insight Pages
+- **Faithy:** Dashboard, Add New Group Modal, Group Details Modal, Profile Modal, and Confirm Split Pages  
+- **Jemmy:** Add New Bill, Statistics and Split bill pages
