@@ -8,20 +8,58 @@ import DashboardPage from '../../pages/DashboardPage';
 import ProfileModal from '../modals/ProfileModal';
 import CreateGroupModal from '../modals/CreateGroupModal';
 import GroupDetailsModal from '../modals/GroupDetailsModal';
+import TransactionDetailsModal from '../modals/TransactionDetailsModal';
 import AddBillEmpty from '../AddBillEmpty';
 import SplitBill from '../SplitBill';
+import ConfirmSplitPage from '../ConfirmSplitPage';
 
-// Placeholder Stats page
 const StatsPage = () => (
-  <div className="animate-[fadeIn_0.4s_ease-out]">
-    <h1 className="text-2xl font-bold text-white">Statistics Page (by Jemmy)</h1>
-  </div>
+  <div className="animate-[fadeIn_0.4s_ease-out]">
+    <h1 className="text-2xl font-bold text-white">Statistics Page (by Jemmy)</h1>
+  </div>
 );
 
 const MainLayout = () => {
-  const [bill, setBill] = useState({ description: '', amount: '', group: '' });
-  const [screen, setScreen] = useState(1); // 1 = AddBillEmpty, 2 = SplitBill
-  const [groups, setGroups] = useState([]); // user-created groups
+  const [bill, setBill] = useState({ description: '', amount: '', group: '' });
+  const [screen, setScreen] = useState(1);
+  const [activeBill, setActiveBill] = useState(null);
+  const [groups, setGroups] = useState([]); 
+
+  // Renamed from resetFlow to be more specific
+  const resetSplitFlow = () => {
+    setBill({ description: '', amount: '', group: '' });
+    setActiveBill(null);
+    setScreen(1); // Explicitly set screen to 1
+  };
+
+  const renderContent = () => {
+    switch (screen) {
+        case 1:
+            return <AddBillEmpty
+                bill={bill}
+                setBill={setBill}
+                onNext={() => setScreen(2)}
+                groups={groups}
+            />;
+        case 2:
+            return <SplitBill 
+                bill={bill} 
+                members={groups.find(g => g.name === bill.group)?.members || []}
+                onNext={(finalBill) => {
+                    setActiveBill(finalBill);
+                    setScreen(3);
+                }}
+            />;
+        case 3:
+            return <ConfirmSplitPage
+                activeBill={activeBill}
+                group={groups.find(g => g.name === bill.group)}
+                onDone={resetSplitFlow}
+            />;
+        default:
+            return <Navigate to="/dashboard" replace />;
+    }
+  };
 
   return (
     <>
@@ -34,7 +72,6 @@ const MainLayout = () => {
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/stats" element={<StatsPage />} />
-              <Route path="/insights" element={<InsightsPage />} />
               <Route
                 path="/new-split"
                 element={
@@ -61,12 +98,12 @@ const MainLayout = () => {
         <BottomNav />
       </div>
 
-      {/* Modals */}
-      <ProfileModal />
-      <CreateGroupModal setGroups={setGroups} />
-      <GroupDetailsModal />
-    </>
-  );
+      <ProfileModal />
+      <CreateGroupModal setGroups={setGroups} />
+      <GroupDetailsModal />
+      <TransactionDetailsModal />
+    </>
+  );
 };
 
 export default MainLayout;
