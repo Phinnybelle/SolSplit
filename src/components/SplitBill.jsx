@@ -56,10 +56,9 @@ const SplitBill = ({ bill, members, onNext }) => {
 
     return (
         <div className="p-6 animate-[fadeIn_0.4s_ease-out]">
-            <h1 className="text-center text-lg font-semibold">Split Bill</h1>
-            <div className="text-center mt-4">
-                {/* Updated title and amount font size */}
-              <p className="text-gray-300">Total Bill for {bill.description}</p>
+            <h1 className="text-center text-[2.2rem] font-bold">Split Bill</h1>
+            <div className="text-center">
+              <p className="text-[1.3rem] text-gray-300">Total Bill for {bill.description}</p>
               <p className="text-green-400 text-4xl font-bold">${total.toFixed(2)}</p>
             </div>
 

@@ -6,9 +6,8 @@ const Sidebar = ({ onNewSplitClick }) => {
     const navigate = useNavigate();
 
     return (
-        <nav className="w-64 bg-dark-bg border-r border-card-bg p-4 flex-col fixed h-full hidden md:flex">
-            {/* FIX: Reverted to the text-based logo */}
-            <div className="text-4xl font-bold mb-10 px-2">
+        <nav className="w-64 bg-dark-bg border-r border-card-bg p-4 flex flex-col fixed h-full hidden md:flex">
+            <div className="text-4xl font-bold mb-10 text-center">
                 <span className="text-purple-600">Sol</span>
                 <span className="text-green-600">Split</span>
             </div>
@@ -45,24 +44,21 @@ const Sidebar = ({ onNewSplitClick }) => {
                         <span>Statistics</span>
                     </NavLink>
                 </li>
-
-                {/* 🚀 NEW: AI Insights link */}
-        <li>
-          <NavLink
-            to="/insights"
-            className={({ isActive }) =>
-              `nav-link w-full flex items-center p-3 rounded-lg transition-colors ${
-                isActive
-                  ? 'bg-card-bg text-white'
-                  : 'text-light-gray hover:bg-card-bg hover:text-white'
-              }`
-            }
-          >
-            <Sparkles className="w-6 h-6 mr-3 text-purple-400" /> AI Insights
-          </NavLink>
-        </li>
-
-
+                <li>
+                    <NavLink
+                        to="/insights"
+                        className={({ isActive }) =>
+                            `w-full flex items-center p-3 rounded-lg transition-colors ${
+                                isActive
+                                ? 'bg-solana-purple text-white'
+                                : 'text-light-gray hover:bg-card-bg hover:text-white'
+                            }`
+                        }
+                    >
+                        <Sparkles className="w-6 h-6 mr-3 text-purple-400" /> 
+                        <span>AI Insights</span>
+                    </NavLink>
+                </li>
             </ul>
 
             <button 

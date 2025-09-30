@@ -22,7 +22,6 @@ const AddBillEmpty = ({ bill, setBill, onNext, groups }) => {
     <div className="p-6">
       <h1 className="text-center text-lg font-semibold">Add New Bill</h1>
 
-      {/* Error Message */}
       {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
       <div className="mt-6">
@@ -50,17 +49,17 @@ const AddBillEmpty = ({ bill, setBill, onNext, groups }) => {
       <div className="mt-6">
         <label className="text-gray-400 text-sm">Select Group</label>
         <select
-  value={bill.group}
-  onChange={(e) => setBill({ ...bill, group: e.target.value })}
-  className="w-full mt-1 p-3 rounded-md bg-gray-800 text-white"
->
-  <option value="">-- Select a Group --</option>
-  {groups.map((g) => (
-    <option key={g.name} value={g.name}>
-      {g.name}
-    </option>
-  ))}
-</select>
+          value={bill.group}
+          onChange={(e) => setBill({ ...bill, group: e.target.value })}
+          className="w-full mt-1 p-3 rounded-md bg-gray-800 text-white"
+        >
+          <option value="">-- Select a Group --</option>
+          {groups.map((g) => (
+            <option key={g.name} value={g.name}>
+              {g.name}
+            </option>
+          ))}
+        </select>
       </div>
 
       <button

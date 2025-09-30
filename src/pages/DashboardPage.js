@@ -75,7 +75,6 @@ const DashboardPage = () => {
     return (
         <div className="animate-[fadeIn_0.4s_ease-out]">
             <div className="bg-card-bg p-6 rounded-2xl mb-8">
-                {/* FIX: Restored the two-column grid layout */}
                 <div className="grid grid-cols-2 gap-4">
                     <div>
                         <div className="flex items-center space-x-2">
@@ -85,7 +84,7 @@ const DashboardPage = () => {
                         <p className="text-2xl font-bold text-danger">{balanceVisibility.owes ? `$${balances.owes.toFixed(2)}` : '******'}</p>
                     </div>
                     <div className="text-right">
-                         <div className="flex items-center justify-end space-x-2">
+                        <div className="flex items-center justify-end space-x-2">
                             <p className="text-light-gray text-sm">Total Owed to SolSplit</p>
                             <button onClick={() => toggleBalanceVisibility('owed')} className="text-light-gray"><EyeIcon /></button>
                         </div>
@@ -100,7 +99,7 @@ const DashboardPage = () => {
                     <button onClick={() => setCreateGroupModalOpen(true)} className="w-8 h-8 bg-solana-purple rounded-full text-white flex items-center justify-center text-2xl">+</button>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                   {groups.length > 0 ? groups.map(group => (
+                    {groups.length > 0 ? groups.map(group => (
                         <div 
                             key={group.id} 
                             onClick={() => handleGroupClick(group)} 
@@ -110,31 +109,31 @@ const DashboardPage = () => {
                             <div><div className="mb-2">{groupIcons[group.category] || groupIcons['Other']}</div><h3 className="font-bold">{group.name}</h3></div>
                             <div className="flex items-center -space-x-2 mt-4">{group.members.map(m => <Avatar key={m.id} seed={m.address} className="w-6 h-6 border-2 border-dark-bg" />)}</div>
                         </div>
-                   )) : <p className="text-light-gray col-span-full">No active groups. Click '+' to create one!</p>}
+                    )) : <p className="text-light-gray col-span-full">No active groups. Click '+' to create one!</p>}
                 </div>
             </div>
             
             <div>
                 <h2 className="text-xl font-bold mb-4">Recent Transactions</h2>
                 <div className="space-y-3">
-                   {recentTransactions.length > 0 ? recentTransactions.map(tx => (
-                       <div 
+                    {recentTransactions.length > 0 ? recentTransactions.map(tx => (
+                        <div 
                            key={tx.id}
                            onClick={() => handleTransactionClick(tx)}
                            className="bg-card-bg p-4 rounded-lg flex justify-between items-center cursor-pointer hover:bg-card-bg/70 transition-colors"
-                       >
-                           <div>
-                               <p className="font-bold">{tx.description}</p>
-                               <p className="text-sm text-light-gray">{tx.groupName}</p>
-                           </div>
-                           <div className="text-right">
-                               <p className="font-bold text-lg">${parseFloat(tx.totalAmount).toFixed(2)}</p>
-                               <p className={`text-xs font-bold ${tx.overallStatus === 'Completed' ? 'text-solana-green' : 'text-yellow-400'}`}>
-                                   {tx.overallStatus}
-                               </p>
-                           </div>
-                       </div>
-                   )) : <p className="text-light-gray">No recent transactions yet.</p>}
+                        >
+                            <div>
+                                <p className="font-bold">{tx.description}</p>
+                                <p className="text-sm text-light-gray">{tx.groupName}</p>
+                            </div>
+                            <div className="text-right">
+                                <p className="font-bold text-lg">${parseFloat(tx.totalAmount).toFixed(2)}</p>
+                                <p className={`text-xs font-bold ${tx.overallStatus === 'Completed' ? 'text-solana-green' : 'text-yellow-400'}`}>
+                                    {tx.overallStatus}
+                                </p>
+                            </div>
+                        </div>
+                    )) : <p className="text-light-gray">No recent transactions yet.</p>}
                 </div>
             </div>
         </div>
