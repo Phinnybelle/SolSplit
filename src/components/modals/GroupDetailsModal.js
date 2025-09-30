@@ -67,14 +67,12 @@ const GroupDetailsModal = () => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={closeModal}>
-            {/* FIX: Widened modal from max-w-sm to max-w-md */}
             <div className="bg-card-bg w-11/12 max-w-md rounded-2xl p-6" onClick={e => e.stopPropagation()}>
                 <h2 className="text-xl font-bold text-center mb-1">{activeGroupDetails.name}</h2>
                 <p className="text-sm text-light-gray text-center mb-6">
                     {activeGroupDetails.members.length} / {MAX_GROUP_MEMBERS} members
                 </p>
 
-                {/* FIX: Removed max-h-64 and overflow-y-auto to prevent scrollbar */}
                 <div className="space-y-3">
                     {activeGroupDetails.members.map(member => (
                         <div key={member.id} className="flex items-center justify-between bg-input-bg p-2 rounded-lg">
@@ -92,7 +90,6 @@ const GroupDetailsModal = () => {
                     ))}
                 </div>
 
-                {/* Add Member Form */}
                 {showAddForm && (
                     <div className="mt-4 border-t border-input-bg pt-4">
                         <h3 className="font-semibold mb-2">Add New Member</h3>
@@ -121,7 +118,7 @@ const GroupDetailsModal = () => {
                 )}
                 
                 {!showAddForm && (
-                   <div className="flex space-x-2 mt-6">
+                     <div className="flex space-x-2 mt-6">
                         <button onClick={closeModal} className="w-full bg-input-bg rounded-lg py-3">Close</button>
                         {isBelowMaxMembers && (
                             <button onClick={() => setShowAddForm(true)} className="w-full bg-solana-purple rounded-lg py-3">Add Member</button>

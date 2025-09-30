@@ -11,7 +11,6 @@ const Header = () => {
             onClick={() => setProfileModalOpen(true)} 
             className="flex items-center space-x-3 text-white font-semibold p-2 rounded-lg hover:bg-card-bg transition-colors"
         >
-            {/* Updated to show username.sol */}
             <span>{`${username}.sol`}</span>
             <Avatar seed={username} className="w-10 h-10" />
         </button>
