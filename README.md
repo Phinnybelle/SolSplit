@@ -16,8 +16,22 @@
 </p>
 
 ---
+## Meet The Team
+Name: Adaobi Ruphina
+X handle: @Phinnybelle
+Github: https://github.com/Phinnybelle
 
-## 🚀 About The Project
+
+Name: Faithy Raymond
+X handle: @Faithy_Raymond
+Github: https://github.com/rayeberechi
+
+Name: Jemimah Ekong
+X handle: @@Keot_jem
+Github: https://github.com/JemimahEkong
+
+
+## About The Project
 
 **SolSplit** is a decentralized application designed to bring clarity, trust, and efficiency to managing shared expenses. Built on the Solana blockchain, it solves the common problems of tracking shared bills by creating a transparent, shared ledger for each group.
 
@@ -90,6 +104,10 @@ Make sure you have Node.js (version 18 or higher) and npm installed on your mach
    ```
 
 The application will be available at `http://localhost:3000`.
+
+Live Demo link: https://solsplit-three.vercel.app
+
+Hackathon Submission Link: https://www.hackquest.io/project/eDWkUcdb/invite?user=Faith
 
 ---
 
