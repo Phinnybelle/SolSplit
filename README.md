@@ -19,18 +19,17 @@
 
 ---
 ## Meet The Team
-Name: Adaobi Ruphina
-X handle: @Phinnybelle
-Github: https://github.com/Phinnybelle
+* Name: Adaobi Ruphina
+* X handle: @Phinnybelle_
+* Github Username: Phinnybelle
 
+* Name: Faithy Raymond
+* X handle: @Faithy_Raymond
+* Github Username: Rayeberechi
 
-Name: Faithy Raymond
-X handle: @Faithy_Raymond
-Github: https://github.com/rayeberechi
-
-Name: Jemimah Ekong
-X handle: @@Keot_jem
-Github: https://github.com/JemimahEkong
+* Name: Jemimah Ekong
+* X handle: @Keot_jem
+* Github Username: JemimahEkon
 
 
 ## 🚀 About The Project
@@ -108,8 +107,9 @@ Follow these steps to get the project running locally.
    npm start
    ```
 
-The application will be available at `http://localhost:3000`.
+Live Demo: https://solsplit-three.vercel.app
 
+Hackathon Submission Link: https://www.hackquest.io/project/eDWkUcdb/invite?user=Faith
 ---
 
 ## Roadmap & Future Enhancements
